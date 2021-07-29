@@ -19,26 +19,27 @@ namespace MortgageCalculatorApp
                     List<User> UserList = new List<User>();
                     double yearPayments = 12;
 
-                   
-                    Console.WriteLine("Welcome to your loan application, before we can APPROVE or DENY you we will need the some information to process\n");
-
+                    Console.WriteLine("----------------------------------------------------------------------------------------------------------------------");
+                    Console.WriteLine("|| Welcome to your loan application, before we can APPROVE or DENY you we will need the some information to process ||");
+                    Console.WriteLine("----------------------------------------------------------------------------------------------------------------------\n");
                     Console.Write("What is the principal loan amount you are requesting (note:a $2500 fee will be added)?\n>$");
                     double prLoanAmt = double.Parse(Console.ReadLine());
                     storedVals.Add("Requested Amount+ 2500 fee", prLoanAmt+2500);
-        
-                    
+                    Console.WriteLine("");
+
+                   
                     Console.Write("What is the current market value of the home?\n>$");
                     double initHomeMV = double.Parse(Console.ReadLine());
                     storedVals.Add("Home Market Value", initHomeMV);
-              
+                    Console.WriteLine("");
                     Console.Write("What is your monthly HOA?\n>$");
                     double hOA = double.Parse(Console.ReadLine());
                     storedVals.Add("HOA", hOA);
-                    
+                    Console.WriteLine("");
                     Console.Write("Please select the term length (please note this will affect the APR)\n1- 15 years at 1.824% APR\n2- 30 years at 2.494% APR\n>");
                     double termSelect = int.Parse(Console.ReadLine());
                     storedVals.Add("Term Length", termSelect);
-                    
+                    Console.WriteLine("");
                     double APR = 0;
                     switch (termSelect)
                     {
@@ -60,21 +61,24 @@ namespace MortgageCalculatorApp
                     Console.Write("Downpayment amount (must be minimum 10% of current market value of house)?\n>$");
                     double downPayment = double.Parse(Console.ReadLine());
                     storedVals.Add("Downpayment", downPayment);
-                    
+                    Console.WriteLine("");
+
 
 
                     while (downPayment < .1 * initHomeMV || downPayment > initHomeMV)
                     {
                         Console.Write("Invalid downpayment entry, please try again\n>$");
                         downPayment = double.Parse(Console.ReadLine());
-                        
+                        Console.WriteLine("");
+
                         storedVals["Downpayment"] = downPayment;
                     }
 
 
                     Console.Write("What is your GROSS monthly income?\n>$");
                     double grossMoInc = double.Parse(Console.ReadLine());
-                    
+                    Console.WriteLine("");
+
                     storedVals.Add("Gross Monthly Income", grossMoInc);
 
                     double termMonths = yearPayments * termSelect;
@@ -102,7 +106,8 @@ namespace MortgageCalculatorApp
 
                     Console.Write("Would you like to verify all the values\n1-YES\n2-NO?\n>");
                     int verInput = int.Parse(Console.ReadLine());
-                    
+                    Console.WriteLine("");
+
 
                     switch (verInput)
                     {
